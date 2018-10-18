@@ -18,7 +18,7 @@ describe Pagy do
 
     it 'initializes' do
       pagy.must_be_instance_of PagyGroupedBy
-      Pagy.new(count: 100).must_be_instance_of Pagy
+      Pagy.new(group_by_hash_key: {1 => [1,2,3], 2 => [1,2] } ).must_be_instance_of PagyGroupedBy
       Pagy.new(count: '100').must_be_instance_of Pagy
       Pagy.new(count: 100, page: '2').must_be_instance_of Pagy
       Pagy.new(count: 100, page: '').must_be_instance_of Pagy
