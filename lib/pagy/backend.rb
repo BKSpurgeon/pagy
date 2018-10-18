@@ -28,5 +28,19 @@ class Pagy
       collection.offset(pagy.offset).limit(pagy.items)
     end
 
+    def pagy_grouped_by(grouped_by_hash_collection, vars={})
+      pagy = PagyGroupedBy.new(pagy_get_grouped_by_vars(grouped_by_hash_collection, vars))
+      raise NotImplementedError
+      # please come back and ensure that the pagy_get_items method is properly called for group_by hashes
+      return pagy, pagy_get_items(grouped_by_hash_collection, pagy)
+    end
+
+    # Sub-method called only by #pagy_grouped_by: here for easy customization of variables by overriding
+    def pagy_get_grouped_by_vars(grouped_by_hash_collection, vars)
+      grouped_by_hash =  Hash[grouped_by_hash.map{|k, v| [k, v.count] }]
+
+      { grouped_by_hash: grouped_by_hash, page: params[vars[:page_param]||VARS[:page_param]] }.merge!(vars)
+    end
+
   end
 end
