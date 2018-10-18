@@ -1,10 +1,12 @@
 require_relative 'test_helper'
+require_relative 'pagy_grouped_by'
 
 SingleCov.covered!
 
 describe Pagy do
 
-  let(:pagy) { PagyGroupedBy.new count: 100, page: 4 }
+
+  let(:pagy) { Pagy.new count: 100, page: 4 }
 
   it 'has version' do
     Pagy::VERSION.wont_be_nil
@@ -17,7 +19,7 @@ describe Pagy do
     end
 
     it 'initializes' do
-      pagy.must_be_instance_of PagyGroupedBy
+      pagy.must_be_instance_of Pagy
       Pagy.new(count: 100).must_be_instance_of Pagy
       Pagy.new(count: '100').must_be_instance_of Pagy
       Pagy.new(count: 100, page: '2').must_be_instance_of Pagy
