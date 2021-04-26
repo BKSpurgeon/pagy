@@ -78,7 +78,7 @@ This page contains the practical tips and examples to get the job done with Pagy
 
            ```ruby
            render json: { data: @records,
-                          pagy: pagy_metadata(@pagy) }
+                          pagy: pagy_metadata(@pagy, ...) }
            ```
 
     - Option C: if your app is an API service consumed by some client and doesn't provide any UI on its own, you don't need the `include Pagy::Frontend` in `ApplicationHelper`, instead:

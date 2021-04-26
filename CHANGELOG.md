@@ -12,8 +12,9 @@
   - `pagy_info(@pagy, pagy_id: 'my-id', item_name: '...', i18n_key: '...')`
   - `pagy_prev_link(@pagy, text: '...', link_extra: '...')`
   - `pagy_next_link(@pagy, text: '...', link_extra: '...')`
-  - passing positional arguments (besides `@pagy`) to the public helpers is deprecated and it will be supported only until pagy 5.0 (with the exception is the internal `pagy_url_for` and `pagy_link_proc` methods that will keep using positional arguments)
-- Changed the argument order of `pagy_url_for(page, pagy)` to `pagy_url_for(pagy, page)` for consistency with the rest of the helpers. The legacy usage, has been deprecated and supported only until pagy 5.0.
+  - passing positional arguments (besides `@pagy`) to the public helpers is deprecated and it will be supported only until pagy 5.0 (with the exception is the internal `pagy_link_proc` method that will keep using positional arguments)
+- Changed the argument order of `pagy_url_for(page, pagy, url=nil)` to `pagy_url_for(pagy, page, only_path: true)` for consistency with the rest of the helpers and rails convention.
+- The legacy usage of argument, has been deprecated and will be supported only until pagy 5.0.
 
 ## Version 4.3.0
 
