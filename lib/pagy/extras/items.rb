@@ -52,13 +52,13 @@ class Pagy
     prepend UseItemsExtra
 
     # Return the items selector HTML. For example "Show [20] items per page"
-    def pagy_items_selector_js(pagy, deprecated_id=nil, pagy_id: nil, item_name: nil, i18n_key: nil)
+    def pagy_items_selector_js(pagy, deprecated_id=nil, pagy_id: nil, item_name: nil, i18n_key: nil, link_extra: '')
       pagy_id        = Pagy.deprecated_arg(:id, deprecated_id, :pagy_id, pagy_id) if deprecated_id
       p_id           = %( id="#{pagy_id}") if pagy_id
       p_vars         = pagy.vars
       p_items        = p_vars[:items]
       p_vars[:items] = ITEMS_PLACEHOLDER
-      link           = pagy_marked_link(pagy_link_proc(pagy))
+      link           = pagy_marked_link(pagy_link_proc(pagy, link_extra: link_extra))
       p_vars[:items] = p_items # restore the items
 
       html  = %(<span#{p_id} class="pagy-items-selector-js">)

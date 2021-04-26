@@ -42,7 +42,7 @@ This method takes the Pagy object and returns the HTML string with the paginatio
 
 The method accepts also a couple of optional keyword arguments:
 - `:pagy_id` which adds the `id` HTML attributedto the `nav` tag
-- `:link_extra` which add a verbatim `link_extra` string to the `a` tag (e.g. `'data-remote="true"'`)
+- `:link_extra` which add a verbatim string to the `a` tag (e.g. `'data-remote="true"'`)
 
 The `nav.*` templates produce the same output, and can be used as an easier (but slower) way to customize it.
 
