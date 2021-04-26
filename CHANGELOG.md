@@ -4,7 +4,8 @@
 
 ### Changes
 
-- All the public helpers accept optional keyword arguments, for example:
+- Passing positional arguments (besides `@pagy`) to all the helpers is deprecated and it will be supported only until pagy 5.0
+- All the helpers accept more optional keyword arguments, for example:
   - `pagy*_nav(@pagy, pagy_id: 'my-id', link-extra: '...')`
   - `pagy*_nav_js(@pagy, pagy_id: 'my-id', link-extra: '...', steps: {...})`
   - `pagy*_combo_nav_js(@pagy, pagy_id: 'my-id', link-extra: '...')`
@@ -12,9 +13,8 @@
   - `pagy_info(@pagy, pagy_id: 'my-id', item_name: '...', i18n_key: '...')`
   - `pagy_prev_link(@pagy, text: '...', link_extra: '...')`
   - `pagy_next_link(@pagy, text: '...', link_extra: '...')`
-  - passing positional arguments (besides `@pagy`) to the public helpers is deprecated and it will be supported only until pagy 5.0 (with the exception is the internal `pagy_link_proc` method that will keep using positional arguments)
-- Changed the argument order of `pagy_url_for(page, pagy, url=nil)` to `pagy_url_for(pagy, page, only_path: true)` for consistency with the rest of the helpers and rails convention.
-- The legacy usage of argument, has been deprecated and will be supported only until pagy 5.0.
+  - `pagy_link_proc(@pagy, link_extra: '...')`
+  - `pagy_url_for(pagy, page, only_path: true)` (notice the inverted page/pagy order with the legacy`pagy_url_for(page, pagy, url=nil)`)
 
 ## Version 4.3.0
 
