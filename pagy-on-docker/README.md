@@ -117,27 +117,9 @@ If you need to edit/develop new E2E tests, you can use one of the previous point
 
 ### Build Pagy Cypress
 
-Check your user id with:
+`docker-compose build pagy-cypress`.
 
-```sh
-id -u
-```
-
-If it is `1000` you are all setup for building the container. If it is any other id, you should first open the `pagy-on-docker/docker-compose.yml` file and switch (i.e. commenting/uncommenting) the `pagy-cypress.build.dockerimage` entries so they will look like this:
-
-```yml
-...
-    # switch between the following 2 lines if your user id is 1000 or not
-    # dockerfile: pagy-cypress-uid1000.dockerfile
-    dockerfile: pagy-cypress.dockerfile
-...
-```
-
-After saving the file, the rest of the building will be almost identical to the [Build](#build) section above.
-
-The ony difference is that you must replace the command `docker-compose build pagy pagy-jekyll` with `docker-compose build pagy-cypress`.
-
-All the rest (including ENV variables) is exactly the same.
+The default UID is 1000, which can be overriden.
 
 ### Run the tests
 

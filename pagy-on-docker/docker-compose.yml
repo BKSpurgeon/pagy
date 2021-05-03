@@ -82,10 +82,8 @@ services:
       - pagy
     image: pagy-cypress:latest
     build:
-      context: .
-      # switch between the following 2 lines if your user id is 1000 or not
-      dockerfile: pagy-cypress-uid1000.dockerfile
-      # dockerfile: pagy-cypress.dockerfile
+      context: .      
+      dockerfile: pagy-cypress.dockerfile
       args:
         user: $USER
         group: $GROUP
